@@ -12,7 +12,7 @@ public class Player {
         yourGrid = new Grid();
         opponentGrid = new Grid();
         for (int i = 0; i < Constants.SHIP_LENGTHS.length; i++){
-            ships[i].length = Constants.SHIP_LENGTHS[i];
+            ships[i] = new Ship(Constants.SHIP_LENGTHS[i]);
         }
     }
     

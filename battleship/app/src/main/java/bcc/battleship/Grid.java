@@ -81,26 +81,32 @@ public class Grid {
         if (s.getDirection() == Constants.HORIZONTAL){
             for (int i = c; i < c + s.getLength(); i++){
                 if(r>=0 && i>=0 && r<Constants.NUM_ROWS && i<Constants.NUM_COLS){
-                    if(gridArray[r][i].hasShip() == true){
+                    if(gridArray[r][i].hasShip()){
+                        return false;
+                    }
+                    else{
                         setShip(r, i, true);
                     }
                 }
+                else{
+                    return false;
+                }
             }
-        }
-        else{
-            return false;
         }
         if (s.getDirection() == Constants.VERTICAL){
             for (int i = r; i < r + s.getLength(); i++){
                 if(i>=0 && c>=0 && i<Constants.NUM_ROWS && c<Constants.NUM_COLS){
                     if(gridArray[i][c].hasShip() == true){
+                        return false;
+                    }
+                    else{
                         setShip(i, c, true);
                     }
                 }
+                else{
+                    return false;
+                }
             }
-        }
-        else{
-            return false;
         }
         return true;
     }
