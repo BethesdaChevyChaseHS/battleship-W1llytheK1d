@@ -32,6 +32,7 @@ public class ShipTest {
     @Test
     public void testShipLength() {
         Ship ship = new Ship(3);
+        //ERROR HERE (below)
         assertEquals("Length of newly created Ship with length 3 should be 3", 3, ship.getLength());
     }
 
@@ -45,6 +46,7 @@ public class ShipTest {
     public void testToStringInitialShip() {
         Ship ship = new Ship(3);
         String expected = "unset direction ship of length 3 at (unset location)";
+        //ERROR HERE (below)
         assertEquals("Correct toString of a newly created Ship with length 3", expected, ship.toString());
     }
 
@@ -52,6 +54,7 @@ public class ShipTest {
     public void testSetLocationRow() {
         Ship ship = new Ship(3);
         ship.setLocation(1, 4);
+        //ERROR HERE (below)
         assertEquals("After setting the location of a ship to row 1 column 4; the ship's row should be 1", 1, ship.getRow());
     }
 
@@ -59,6 +62,7 @@ public class ShipTest {
     public void testSetLocationColumn() {
         Ship ship = new Ship(3);
         ship.setLocation(1, 4);
+        //ERROR HERE (below)
         assertEquals("After setting the location of a ship to row 1 column 4, the ship's column should be 4", 4, ship.getCol());
     }
 
@@ -76,6 +80,7 @@ public class ShipTest {
         ship.setLocation(1, 4);
         ship.setDirection(Constants.HORIZONTAL);
         String expected = "horizontal ship of length 3 at (1, 4)";
+        //ERROR HERE (below)
         assertEquals("Correct toString of a horizontal ship of length 3 positioned at row 1 and column 4", expected, ship.toString());
     }
 }

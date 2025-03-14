@@ -1,3 +1,4 @@
+
 package bcc.battleship;
 
 public final class Constants {

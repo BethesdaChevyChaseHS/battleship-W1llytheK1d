@@ -1,11 +1,19 @@
+//ERRORS/QUESTIONS: Why do they all say "cannot invoke method on primitive type int"
 package bcc.battleship;
 import bcc.battleship.Constants;
 
 public class Player {
-  
+    private Ship ships[];
+    private Grid yourGrid;
+    private Grid opponentGrid;
     // Constructor: Initialize the grids and the ships.
     public Player() {
-
+        ships = new Ship[Constants.SHIP_LENGTHS.length];
+        yourGrid = new Grid();
+        opponentGrid = new Grid();
+        for (int i = 0; i < Constants.SHIP_LENGTHS.length; i++){
+            ships[i].length = Constants.SHIP_LENGTHS[i];
+        }
     }
     
     /**
@@ -13,10 +21,19 @@ public class Player {
      * It sets the ship's row, column, and direction, then adds it to the player's grid.
      *
      */
-    
+    //This should modify set the location and direction of the ship at index index, then 
+    //attempt to add it to the grid. If successful return true, if unsuccessful, return false.
     public boolean chooseShipLocation(int index, int row, int col, int direction) {
         
-        return false;
+        ships[index].setDirection(direction);
+        ships[index].setLocation(row, col);
+        //Read ERRORS at top of page
+        if(yourGrid.addShip(ships[index])){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
    
     /**
@@ -26,15 +43,23 @@ public class Player {
      *
      */
     public boolean recordOpponentGuess(int row, int col) {
-        return false;
+        //read ERRORS at top of page
+        if(yourGrid.hasShip(row, col)){
+            yourGrid.markHit(row, col);
+            return true;
+        }
+        else{
+            yourGrid.markMiss(row, col);
+            return false;
+        }
     }
     
     
     public Grid getMyGrid() {
-        return null;
+        return yourGrid;
     }
     
     public Grid getOpponentGrid() {
-        return null;
+        return opponentGrid;
     }
 }
